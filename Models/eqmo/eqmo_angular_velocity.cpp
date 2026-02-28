@@ -19,4 +19,5 @@ eqmo_angular_velocity_output_bus eqmo_angular_velocity(eqmo_angular_velocity_inp
     outputs.pdot_rps2 = omegadot[0][0];
     outputs.qdot_rps2 = omegadot[1][0];
     outputs.rdot_rps2 = omegadot[2][0];
+    return outputs;
 }
