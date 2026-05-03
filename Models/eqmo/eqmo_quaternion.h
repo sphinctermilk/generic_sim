@@ -24,6 +24,8 @@ public:
     float phi_rad, theta_rad, psi_rad;
 };
 
-euler_angle_vector quaternion2euler(euler_angle_vector);
+euler_angle_vector quaternion2euler(quaternion_vector);
+
+quaternion_vector euler2quaternion(euler_angle_vector);
 
 #endif

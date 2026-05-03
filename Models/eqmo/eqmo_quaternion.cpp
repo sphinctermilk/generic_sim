@@ -34,3 +34,18 @@ euler_angle_vector quaternion2euler(quaternion_vector inputs) {
     outputs.psi_rad = std::atan2(2*(q0*q3+q1*q2), 1-2*(q2*q2+q3*q3));
     return outputs;
 }
+
+quaternion_vector euler2quaternion(euler_angle_vector inputs) {
+    // get data out of inputs
+    float phi = inputs.phi_rad;
+    float theta = inputs.theta_rad;
+    float psi = inputs.psi_rad;
+
+    // euler to quaternion conversion calculations
+    quaternion_vector outputs;
+    outputs.q0_n = std::cos(psi/2)*std::cos(theta/2)*std::cos(phi/2)+std::sin(psi/2)*std::sin(theta/2)*std::sin(phi/2);
+    outputs.q1_n = std::cos(psi/2)*std::cos(theta/2)*std::sin(phi/2)-std::sin(psi/2)*std::sin(theta/2)*std::cos(phi/2);
+    outputs.q2_n = std::cos(psi/2)*std::sin(theta/2)*std::cos(phi/2)+std::sin(psi/2)*std::cos(theta/2)*std::sin(phi/2);
+    outputs.q3_n = std::sin(psi/2)*std::cos(theta/2)*std::cos(phi/2)-std::cos(psi/2)*std::sin(theta/2)*std::sin(phi/2);
+    return outputs;
+}
